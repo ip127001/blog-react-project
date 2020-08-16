@@ -10,6 +10,15 @@ class Child extends React.Component {
     return "delayed text";
   }
 
+  /* remove this function to observe the delayed change in counter value*/
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.color === nextProps.color) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
     console.log("[Child] rendered");
 
