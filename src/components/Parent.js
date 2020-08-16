@@ -16,6 +16,7 @@ class Parent extends React.Component {
     return (
       <div className="container">
           <div>Counter:  {this.state.counter}</div>
+
           <button onClick={() => this.setState({counter: this.state.counter + 1})}>Click me to change counter</button>
           <select defaultValue="red" onChange={(e) => this.setState({color: e.target.value})}>
             <option value="red">red</option>
