@@ -1,26 +1,34 @@
 import React from "react";
 
 class Child extends React.Component {
-  delay() {
-    console.log("[Delay] function called");
+    delay() {
+        console.log("[Delay] function called");
 
-    for (let i = 0; i < 800000000; i++) {
-      i++;
+        for (let i = 0; i < 800000000; i++) {
+            i++;
+        }
+        return "delayed text";
     }
-    return "delayed text";
-  }
 
-  render() {
-    console.log("[Child] rendered");
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.color === nextProps.color) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-    return (
-      <div className="child">
-        <hr />
-        <div>{this.delay()}</div>
-        Selected Color: {this.props.color}
-      </div>
-    );
-  }
+    render() {
+        console.log("[Child] rendered");
+
+        return (
+        <div className="child">
+            <hr />
+            <div>{this.delay()}</div>
+            Selected Color: {this.props.color}
+        </div>
+        );
+    }
 }
 
 export default Child;
