@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from './components/Button';
+import Parent from './components/Parent';
 
 function App() {
   return (
-      <div style={{display: "flex", alignContent: "center", justifyContent: "center", padding: "100px 0"}}>
-        <Button>Click me</Button>
+      <div>
+        <Parent />
       </div>
   );
 }

@@ -3,7 +3,24 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  display: grid;
+  place-items: center;
+  padding-top: 100px;
+}
+
+button {
+  width: 180px;
+}
+
+select {
+  width: 150px;
+}
+
+button, select, div {
+  margin-bottom: 20px;
+}
+
+.child {
+  margin-top: 50px;
 }
