@@ -1,23 +1,16 @@
 import React from "react";
 
-class Child extends React.Component {
-  delay() {
-    console.log("[Delay] function called");
-
-    for (let i = 0; i < 800000000; i++) {
-      i++;
-    }
-    return "delayed text";
-  }
-
+class Child extends React.PureComponent {
   render() {
-    console.log("[Child] rendered");
-
     return (
       <div className="child">
         <hr />
-        <div>{this.delay()}</div>
-        Selected Color: {this.props.color}
+        Selected Color:
+        <ul>
+          {this.props.color.map((el, index) => {
+            return <li key={index}>{el}</li>;
+          })}
+        </ul>
       </div>
     );
   }

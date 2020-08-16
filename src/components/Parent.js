@@ -5,27 +5,22 @@ class Parent extends React.Component {
   constructor() {
     super();
     this.state = {
-      counter: 0,
-      color: "red"
+      color: ["red"]
     };
   }
 
   render() {
-    console.log("[Parent] rendered");
-
     return (
       <div className="container">
-        <div>Counter: {this.state.counter}</div>
-
-        <button
-          onClick={() => this.setState({ counter: this.state.counter + 1 })}
-        >
-          Click me to change counter
-        </button>
-
         <select
-          defaultValue="red"
-          onChange={(e) => this.setState({ color: e.target.value })}
+          onChange={(e) => {
+            console.log(this.state.color);
+            let updatedColor = this.state.color;
+            if (Array.isArray(this.state.color)) {
+              updatedColor.push(e.target.value);
+            }
+            return this.setState({ color: updatedColor });
+          }}
         >
           <option value="red">red</option>
           <option value="blue">blue</option>
